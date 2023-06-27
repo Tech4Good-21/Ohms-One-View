@@ -3,7 +3,7 @@ package com.pbma.oneview.pojo;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class AssesmentDetails {
+public class AssessmentDetails {
 	private int id;
 	private String trainingStatus;
 	private double attendance;
@@ -88,7 +88,7 @@ public class AssesmentDetails {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		AssesmentDetails other = (AssesmentDetails) obj;
+		AssessmentDetails other = (AssessmentDetails) obj;
 		return assessmentConducted == other.assessmentConducted
 				&& Double.doubleToLongBits(attendance) == Double.doubleToLongBits(other.attendance)
 				&& Objects.equals(certificateName, other.certificateName) && certified == other.certified

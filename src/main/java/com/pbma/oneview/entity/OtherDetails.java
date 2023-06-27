@@ -3,6 +3,7 @@ package com.pbma.oneview.entity;
 import jakarta.persistence.Entity;
 
 @Entity
+@Data
 public class OtherDetails {
 	
 	private String highestEducation;

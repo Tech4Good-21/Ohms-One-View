@@ -1,19 +1,27 @@
 package com.pbma.oneview.entity;
 
 import java.time.LocalDate;
-import java.util.Objects;
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
+
+import lombok.Builder;
+import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
+@Builder
+@Table(name = "")
+@AllArgsConstructor
+@NoArgsConstructor
 public class AssessmentDetails {
 	
 	private Integer id;
 	private String trainingStatus;
 	private double attendance;
-	private boolean assessmentConducted;
-	private boolean certified;
+	private Boolean assessmentConducted;
+	private Boolean certified;
 	private LocalDate dateOfPassing;
 	private LocalDate dateOfCertification;
 	private String certificateName;

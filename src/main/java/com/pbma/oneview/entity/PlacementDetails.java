@@ -2,11 +2,19 @@ package com.pbma.oneview.entity;
 
 import java.time.LocalDate;
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
+
+import lombok.Builder;
+import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-public class PlacementDetails {
+@Builder
+@Table(name = "")
+@AllArgsConstructor
+@NoArgsConstructor class PlacementDetails {
 	
 	private Integer id;
 	private String placementStatus;

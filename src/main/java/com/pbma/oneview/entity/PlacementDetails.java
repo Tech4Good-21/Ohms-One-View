@@ -12,11 +12,13 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @Builder
-@Table(name = "")
+@Table(name = "PlacementDetails")
 @AllArgsConstructor
 @NoArgsConstructor class PlacementDetails {
 	
-	private Integer id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	private String placementStatus;
 	private LocalDate dateOfPlacement;
 	private String placementSector ;

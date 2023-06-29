@@ -10,11 +10,13 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @Builder
-@Table(name = "")
+@Table(name = "OtherDetails")
 @AllArgsConstructor
 @NoArgsConstructor
 public class OtherDetails {
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	private String highestEducation;
 	private Boolean currentlyStudying;
 	private Boolean technicalEducation;

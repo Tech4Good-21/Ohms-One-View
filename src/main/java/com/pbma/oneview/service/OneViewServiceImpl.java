@@ -20,7 +20,7 @@ public class OneViewServiceImpl implements OneViewService {
 	}
 
 	@Override
-	public Trainee getTrainee(Integer traineeId) {
+	public Trainee getTrainee(Long traineeId) {
 		return oneViewDao.getById(traineeId);
 	}
 
@@ -37,7 +37,7 @@ public class OneViewServiceImpl implements OneViewService {
 	}
 
 	@Override
-	public void deleteTrainee(Integer traineeId) {
+	public void deleteTrainee(Long traineeId) {
 		oneViewDao.delete(oneViewDao.getById(traineeId));
 	}
 	

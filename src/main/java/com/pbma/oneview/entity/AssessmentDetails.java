@@ -12,12 +12,15 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @Builder
-@Table(name = "")
+@Table(name = "AssessmentDetails")
 @AllArgsConstructor
 @NoArgsConstructor
 public class AssessmentDetails {
 	
-	private Integer id;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	private String trainingStatus;
 	private double attendance;
 	private Boolean assessmentConducted;

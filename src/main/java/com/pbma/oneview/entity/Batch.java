@@ -12,12 +12,15 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @Builder
-@Table(name = "")
+@Table(name = "Batch")
 @AllArgsConstructor
 @NoArgsConstructor
 public class Batch {
 	
-	private Integer id;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	private String course;
 	private String sector;
 	private LocalDate startDate;

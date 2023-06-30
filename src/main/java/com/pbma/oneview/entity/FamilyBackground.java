@@ -10,11 +10,14 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @Builder
-@Table(name = "")
+@Table(name = "FamilyBackground")
 @AllArgsConstructor
 @NoArgsConstructor
 public class FamilyBackground {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long familyId;
 	private String guardianType;
 	private String nameOfGuardian;
 	private Integer familyMemberCount;

@@ -30,7 +30,7 @@ public class OneViewController {
 	}
 	
 	@GetMapping("/trainees/{traineeId}")
-	public Trainee getTrainee(@PathVariable Integer traineeId) {
+	public Trainee getTrainee(@PathVariable Long traineeId) {
 		return oneViewService.getTrainee(traineeId);
 	}
 
@@ -45,7 +45,7 @@ public class OneViewController {
 	}
 	
 	@DeleteMapping("/trainees/{traineeId}")
-	public ResponseEntity<HttpStatus> deleteCourse(@PathVariable Integer traineeId) {
+	public ResponseEntity<HttpStatus> deleteCourse(@PathVariable Long traineeId) {
 		try {
 			oneViewService.deleteTrainee(traineeId);
 			return new ResponseEntity<>(HttpStatus.OK);

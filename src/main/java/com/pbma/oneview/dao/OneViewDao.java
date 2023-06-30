@@ -6,8 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.pbma.oneview.entity.Trainee;
 
 @Repository
-public interface OneViewDao extends JpaRepository<Trainee, Integer> {
-	
-	
+public interface OneViewDao extends JpaRepository<Trainee, Long> {
 
 }

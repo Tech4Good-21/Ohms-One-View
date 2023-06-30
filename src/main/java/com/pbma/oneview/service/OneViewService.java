@@ -8,12 +8,12 @@ public interface OneViewService {
 
 	public List<Trainee> getTrainees();
 	
-	public Trainee getTrainee(Integer traineeId);
+	public Trainee getTrainee(Long traineeId);
 	
 	public Trainee addTrainee(Trainee trainee);
 	
 	public Trainee updateTrainee(Trainee trainee);
 	
-	public void deleteTrainee(Integer traineeId);
+	public void deleteTrainee(Long traineeId);
 	
 }

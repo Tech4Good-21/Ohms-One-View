@@ -2,15 +2,19 @@ package com.pbma.oneview.entity;
 
 import java.time.LocalDate;
 
-import com.pbma.oneview.pojo.AssessmentDetails;
-import com.pbma.oneview.pojo.FamilyBackground;
-import com.pbma.oneview.pojo.PlacementDetails;
-import com.pbma.oneview.pojo.Training;
+import jakarta.persistence.*;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import lombok.Builder;
+import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Data
+@Builder
+@Table(name = "")
+@AllArgsConstructor
+@NoArgsConstructor
 public class Trainee {
 	
 	@Id

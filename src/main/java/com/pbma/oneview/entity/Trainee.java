@@ -19,37 +19,60 @@ public class Trainee {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	private Long id;
+
+	@Column(name = "name")
 	private String name;
+
+	@Column(name = "gender")
 	private String gender;
-	private LocalDate dob;
+
+	@Column(name = "date_of_birth")
+	private LocalDate dateOfBirth;
+
+	@Column(name = "id_type")
 	private String idType;
+
+	@Column(name = "id_number")
 	private Integer idNumber;
+
+	@Column(name = "married")
 	private Boolean married;
+
+	@Column(name = "email")
 	private String email;
+
+	@Column(name = "address")
 	private String address;
+
+	@Column(name = "district")
 	private String district;
+
+	@Column(name = "state")
 	private String state;
+
+	@Column(name = "pin")
 	private Integer pin;
 
 	@OneToOne
-	@JoinColumn(referencedColumnName = "trainingId")
+	@JoinColumn(name = "training", referencedColumnName = "training_id")
 	private Training training;
 
 	@OneToOne
-	@JoinColumn(referencedColumnName = "familyId")
+	@JoinColumn(name = "family_info", referencedColumnName = "family_id")
 	private FamilyBackground familyInfo;
 
 	@OneToOne
-	@JoinColumn(referencedColumnName = "id")
+	@JoinColumn(name = "other_details", referencedColumnName = "id")
 	private OtherDetails otherDetails;
 
 	@OneToOne
-	@JoinColumn(referencedColumnName = "id")
+	@JoinColumn(name = "assessment", referencedColumnName = "id")
 	private AssessmentDetails assessment;
 
 	@OneToOne
-	@JoinColumn(referencedColumnName = "id")
+	@JoinColumn(name = "placement", referencedColumnName = "id")
 	private PlacementDetails placement;
 
 }

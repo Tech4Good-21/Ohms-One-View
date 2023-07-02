@@ -18,8 +18,8 @@ import lombok.NoArgsConstructor;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
-	private Long id;
+	@Column(name = "placement_id")
+	private Long placementId;
 
 	@Column(name = "placement_status")
 	private String placementStatus;

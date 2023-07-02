@@ -10,15 +10,15 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @Builder
-@Table(name = "OtherDetails")
+@Table(name = "TraineeDetails")
 @AllArgsConstructor
 @NoArgsConstructor
-public class OtherDetails {
+public class TraineeDetails {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
-	private Long id;
+	@Column(name = "details_id")
+	private Long detailsId;
 
 	@Column(name = "highest_education")
 	private String highestEducation;

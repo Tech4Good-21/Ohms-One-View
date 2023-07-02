@@ -29,7 +29,7 @@ public class Training {
 	@Column(name = "training_location")
 	private String trainingLocation;
 	
-	@OneToOne
+	@OneToOne(cascade = {CascadeType.ALL})
 	@JoinColumn(name = "batch", referencedColumnName = "id")
 	private Batch batch;
 	

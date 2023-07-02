@@ -19,8 +19,8 @@ public class Batch {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
-	private Long id;
+	@Column(name = "batch_id")
+	private Long batchId;
 
 	@Column(name = "course")
 	private String course;

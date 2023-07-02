@@ -55,23 +55,23 @@ public class Trainee {
 	@Column(name = "pin")
 	private Integer pin;
 
-	@OneToOne
+	@OneToOne(cascade = {CascadeType.ALL})
 	@JoinColumn(name = "training", referencedColumnName = "training_id")
 	private Training training;
 
-	@OneToOne
+	@OneToOne(cascade = {CascadeType.ALL})
 	@JoinColumn(name = "family_info", referencedColumnName = "family_id")
 	private FamilyBackground familyInfo;
 
-	@OneToOne
-	@JoinColumn(name = "other_details", referencedColumnName = "id")
-	private OtherDetails otherDetails;
+	@OneToOne(cascade = {CascadeType.ALL})
+	@JoinColumn(name = "trainee_details", referencedColumnName = "id")
+	private TraineeDetails traineeDetails;
 
-	@OneToOne
+	@OneToOne(cascade = {CascadeType.ALL})
 	@JoinColumn(name = "assessment", referencedColumnName = "id")
 	private AssessmentDetails assessment;
 
-	@OneToOne
+	@OneToOne(cascade = {CascadeType.ALL})
 	@JoinColumn(name = "placement", referencedColumnName = "id")
 	private PlacementDetails placement;
 

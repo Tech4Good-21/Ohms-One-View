@@ -19,8 +19,8 @@ public class AssessmentDetails {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
-	private Long id;
+	@Column(name = "assessment_id")
+	private Long assessmentId;
 	
 	@Column(name = "training_status")
 	private String trainingStatus;

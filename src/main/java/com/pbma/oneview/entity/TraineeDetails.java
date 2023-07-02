@@ -13,10 +13,10 @@ import lombok.NoArgsConstructor;
 @Table(name = "OtherDetails")
 @AllArgsConstructor
 @NoArgsConstructor
-public class OtherDetails {
+public class TraineeDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long detailsId;
 	private String highestEducation;
 	private Boolean currentlyStudying;
 	private Boolean technicalEducation;

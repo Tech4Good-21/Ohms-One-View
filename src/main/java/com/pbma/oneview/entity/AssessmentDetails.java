@@ -20,7 +20,7 @@ public class AssessmentDetails {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long assessmentId;
 	private String trainingStatus;
 	private double attendance;
 	private Boolean assessmentConducted;

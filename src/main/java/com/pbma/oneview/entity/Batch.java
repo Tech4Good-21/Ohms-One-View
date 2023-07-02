@@ -20,7 +20,7 @@ public class Batch {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long batchId;
 	private String course;
 	private String sector;
 	private LocalDate startDate;

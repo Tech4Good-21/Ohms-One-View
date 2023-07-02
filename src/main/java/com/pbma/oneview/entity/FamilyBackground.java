@@ -22,8 +22,8 @@ public class FamilyBackground {
 	private String nameOfGuardian;
 	private Integer familyMemberCount;
 	private String familyEcoStatus;
-	private Integer familyIncome;
+	private Double familyIncome;
 	private String sourceOfIncome;
-	private Integer personalIncome;
+	private Double personalIncome;
 	
 }

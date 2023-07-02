@@ -17,17 +17,33 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class AssessmentDetails {
 	
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "assessment_id")
 	private Long assessmentId;
+	
+	@Column(name = "training_status")
 	private String trainingStatus;
+	
+	@Column(name = "attendance")
 	private double attendance;
+	
+	@Column(name = "assessment_conducted")
 	private Boolean assessmentConducted;
+	
+	@Column(name = "certified")
 	private Boolean certified;
+	
+	@Column(name = "date_of_passing")
 	private LocalDate dateOfPassing;
+	
+	@Column(name = "date_of_certification")
 	private LocalDate dateOfCertification;
+	
+	@Column(name = "certificate_name")
 	private String certificateName;
+	
+	@Column(name = "grade")
 	private double grade;
 	
 }

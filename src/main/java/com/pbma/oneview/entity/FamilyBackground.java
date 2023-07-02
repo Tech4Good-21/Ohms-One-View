@@ -14,16 +14,31 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class FamilyBackground {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "family_id")
 	private Long familyId;
+
+	@Column(name = "guardian_type")
 	private String guardianType;
+
+	@Column(name = "name_of_guardian")
 	private String nameOfGuardian;
+
+	@Column(name = "family_member_count")
 	private Integer familyMemberCount;
+
+	@Column(name = "family_eco_status")
 	private String familyEcoStatus;
-	private Double familyIncome;
+
+	@Column(name = "family_income")
+	private Integer familyIncome;
+
+	@Column(name = "source_of_income")
 	private String sourceOfIncome;
-	private Double personalIncome;
-	
+
+	@Column(name = "personal_income")
+	private Integer personalIncome;
+
 }

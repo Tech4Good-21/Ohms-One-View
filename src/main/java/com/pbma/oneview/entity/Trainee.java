@@ -2,7 +2,6 @@ package com.pbma.oneview.entity;
 
 import java.time.LocalDate;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import lombok.Builder;
@@ -16,42 +15,64 @@ import lombok.NoArgsConstructor;
 @Table(name = "Trainee")
 @AllArgsConstructor
 @NoArgsConstructor
-@JsonIgnoreProperties("hibernateLazyInitializer")
 public class Trainee {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	private Long id;
+
+	@Column(name = "name")
 	private String name;
+
+	@Column(name = "gender")
 	private String gender;
-	private LocalDate dob;
+
+	@Column(name = "date_of_birth")
+	private LocalDate dateOfBirth;
+
+	@Column(name = "id_type")
 	private String idType;
+
+	@Column(name = "id_number")
 	private Integer idNumber;
+
+	@Column(name = "married")
 	private Boolean married;
+
+	@Column(name = "email")
 	private String email;
+
+	@Column(name = "address")
 	private String address;
+
+	@Column(name = "district")
 	private String district;
+
+	@Column(name = "state")
 	private String state;
+
+	@Column(name = "pin")
 	private Integer pin;
 
 	@OneToOne(cascade = {CascadeType.ALL})
-	@JoinColumn(referencedColumnName = "trainingId")
+	@JoinColumn(name = "training", referencedColumnName = "training_id")
 	private Training training;
 
 	@OneToOne(cascade = {CascadeType.ALL})
-	@JoinColumn(referencedColumnName = "familyId")
+	@JoinColumn(name = "family_info", referencedColumnName = "family_id")
 	private FamilyBackground familyInfo;
 
 	@OneToOne(cascade = {CascadeType.ALL})
-	@JoinColumn(referencedColumnName = "detailsId")
+	@JoinColumn(name = "trainee_details", referencedColumnName = "id")
 	private TraineeDetails traineeDetails;
 
 	@OneToOne(cascade = {CascadeType.ALL})
-	@JoinColumn(referencedColumnName = "assessmentId")
+	@JoinColumn(name = "assessment", referencedColumnName = "id")
 	private AssessmentDetails assessment;
 
 	@OneToOne(cascade = {CascadeType.ALL})
-	@JoinColumn(referencedColumnName = "placementId")
+	@JoinColumn(name = "placement", referencedColumnName = "id")
 	private PlacementDetails placement;
 
 }

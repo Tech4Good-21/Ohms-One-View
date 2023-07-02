@@ -22,8 +22,8 @@ public class Training {
 	private String trainingName;
 	private String trainingAddress;
 	private String trainingLocation;
-	@OneToOne
-	@JoinColumn(name = "id")
+	@OneToOne(cascade = {CascadeType.ALL})
+	@JoinColumn(name = "batchId")
 	private Batch batch;
 	
 }

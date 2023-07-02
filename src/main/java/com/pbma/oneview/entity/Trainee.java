@@ -2,6 +2,7 @@ package com.pbma.oneview.entity;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import lombok.Builder;
@@ -15,6 +16,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "Trainee")
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonIgnoreProperties("hibernateLazyInitializer")
 public class Trainee {
 
 	@Id
@@ -32,24 +34,24 @@ public class Trainee {
 	private String state;
 	private Integer pin;
 
-	@OneToOne
+	@OneToOne(cascade = {CascadeType.ALL})
 	@JoinColumn(referencedColumnName = "trainingId")
 	private Training training;
 
-	@OneToOne
+	@OneToOne(cascade = {CascadeType.ALL})
 	@JoinColumn(referencedColumnName = "familyId")
 	private FamilyBackground familyInfo;
 
-	@OneToOne
-	@JoinColumn(referencedColumnName = "id")
-	private OtherDetails otherDetails;
+	@OneToOne(cascade = {CascadeType.ALL})
+	@JoinColumn(referencedColumnName = "detailsId")
+	private TraineeDetails traineeDetails;
 
-	@OneToOne
-	@JoinColumn(referencedColumnName = "id")
+	@OneToOne(cascade = {CascadeType.ALL})
+	@JoinColumn(referencedColumnName = "assessmentId")
 	private AssessmentDetails assessment;
 
-	@OneToOne
-	@JoinColumn(referencedColumnName = "id")
+	@OneToOne(cascade = {CascadeType.ALL})
+	@JoinColumn(referencedColumnName = "placementId")
 	private PlacementDetails placement;
 
 }

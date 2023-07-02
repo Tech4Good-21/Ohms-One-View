@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long placementId;
 	private String placementStatus;
 	private LocalDate dateOfPlacement;
 	private String placementSector ;

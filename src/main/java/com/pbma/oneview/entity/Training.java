@@ -32,7 +32,5 @@ public class Training {
 	@OneToOne(cascade = {CascadeType.ALL})
 	@JoinColumn(name = "batch", referencedColumnName = "batch_id")
 	private Batch batch;
-
-
 	
 }

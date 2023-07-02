@@ -32,10 +32,10 @@ public class OneViewController {
 	private OneViewService oneViewService;
 	final Logger logger = LogManager.getLogger(OneViewController.class);
 
-	 @PostMapping("/check")
-	    public void fetchData(@RequestBody String data) {
-	        System.out.println("Data received from Postman: " + data);
-	    }
+	@PostMapping("/check")
+	public void fetchData(@RequestBody String data) {
+		System.out.println("Data received from Postman: " + data);
+	}
 	
 	@GetMapping("/trainees")
 	public List<Trainee> getTrainees() {
@@ -69,11 +69,12 @@ public class OneViewController {
 	}
 
 	private String toJsonString(Object object) {
-	    try {
+		try {
 	        return new ObjectMapper().writeValueAsString(object);
 	    } catch (JsonProcessingException e) {
 	        logger.error("Error converting object to JSON string: {}", e.getMessage());
 	        return "";
 	    }
-}
 	}
+
+}

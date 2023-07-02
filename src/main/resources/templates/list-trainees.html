@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>All Trainees</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+
+</head>
+<body>
+	<div th:insert="comman/header :: header"></div>
+	<div class="container my-2">
+
+		<div th:switch="${trainees}" class="container my-5">
+			<p class="my-5">
+				<a href="/addTrainee" class="btn btn-dark"> <i
+					class="fas fa-user-plus ml-2"> Add Trainees </i></a>&nbsp;&nbsp;<a
+					href="/export/all-trainee" class="btn btn-info"> <i
+					class="fas fa-file-csv ml-2"> Export CSV </i></a>
+			</p>
+			<div class="col-md-12">
+				<h2 th:case="null">No record found !!</h2>
+				<div th:case="*">
+					<table class="table table-bordered">
+						<thead>
+							<tr>
+								<th>Trainee Name</th>
+								<th>Trainee gender</th>
+								<th>Trainee idType</th>
+								<th>Trainee idNumber</th>
+								<th>Trainee email</th>
+								<th>Trainee address</th>
+								<th>Trainee district</th>
+								<th>Trainee pin</th>
+								<th>State</th>
+								<th>Edit</th>
+								<th>Delete</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="trainee : ${trainees}">
+								<td th:text="${trainee.name}"></td>
+								<td th:text="${trainee.gender}"></td>
+								<td th:text="${trainee.idType}"></td>
+								<td th:text="${trainee.idNumber}"></td>
+								<td th:text="${trainee.email}"></td>
+								<td th:text="${trainee.address}"></td>
+								<td th:text="${trainee.district}"></td>
+								<td th:text="${trainee.pin}"></td>
+								<td th:text="${trainee.state}"></td>
+								<td><a th:href="@{/updateTrainee/{id}(id=${trainee.id})}"
+									class="btn btn-warning"><i class="fas fa-user-edit ml-2"></i></a></td>
+								<td><a th:href="@{/remove-trainee/{id}(id=${trainee.id})}"
+									class="btn btn-danger"><i class="fas fa-user-times ml-2"></i></a></td>
+							</tr>
+						</tbody>
+					</table>
+					<div th:if="${trainees.totalPages > 0}" class="pagination"
+						th:each="pageNumber : ${pageNumbers}">
+						<a th:href="@{/trainees(size=${trainees.size}, page=${pageNumber})}"
+							th:text=${pageNumber}
+							th:class="${pageNumber==trainees.number + 1} ? active"></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div th:insert="comman/footer :: footer"></div>
+</body>
+
+</html>

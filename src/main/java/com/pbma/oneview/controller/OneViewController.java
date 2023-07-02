@@ -33,11 +33,6 @@ public class OneViewController {
 	@Autowired
 	private OneViewService oneViewService;
 	final Logger logger = LogManager.getLogger(OneViewController.class);
-
-	 @PostMapping("/check")
-	    public void fetchData(@Valid @RequestBody String data) {
-	        System.out.println("Data received from Postman: " + data);
-	    }
 	
 	@GetMapping("/trainees")
 	public List<Trainee> getTrainees() {
@@ -70,4 +65,6 @@ public class OneViewController {
 		}
 	}
 
-	}
+
+
+}

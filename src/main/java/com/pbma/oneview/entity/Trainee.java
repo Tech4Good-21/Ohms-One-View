@@ -92,5 +92,6 @@ public class Trainee {
 	@OneToOne(cascade = {CascadeType.ALL})
 	@JoinColumn(name = "placement", referencedColumnName = "placement_id")
 	private PlacementDetails placement;
+	
 
 }

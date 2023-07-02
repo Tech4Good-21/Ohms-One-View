@@ -21,6 +21,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.pbma.oneview.entity.Trainee;
 import com.pbma.oneview.service.OneViewService;
 
+import jakarta.validation.Valid;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -31,11 +33,6 @@ public class OneViewController {
 	@Autowired
 	private OneViewService oneViewService;
 	final Logger logger = LogManager.getLogger(OneViewController.class);
-
-	@PostMapping("/check")
-	public void fetchData(@RequestBody String data) {
-		System.out.println("Data received from Postman: " + data);
-	}
 	
 	@GetMapping("/trainees")
 	public List<Trainee> getTrainees() {
@@ -49,7 +46,7 @@ public class OneViewController {
 
 	@PostMapping("/trainees")
 	public Trainee addTrainee(@RequestBody Trainee trainee) {
-		logger.info("Received request body: {}",toJsonString(trainee.toString()));
+		//logger.info("Received request body: {}",trainee.toString());
 		return oneViewService.addTrainee(trainee);
 	}
 	
@@ -68,13 +65,6 @@ public class OneViewController {
 		}
 	}
 
-	private String toJsonString(Object object) {
-		try {
-	        return new ObjectMapper().writeValueAsString(object);
-	    } catch (JsonProcessingException e) {
-	        logger.error("Error converting object to JSON string: {}", e.getMessage());
-	        return "";
-	    }
-	}
+
 
 }

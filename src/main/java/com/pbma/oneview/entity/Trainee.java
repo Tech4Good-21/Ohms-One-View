@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Pattern.Flag;
@@ -32,11 +33,12 @@ public class Trainee {
 
 	@Column(name = "gender")
 	@NotBlank
+	@NotEmpty(message = "gender is required.")
 	private String gender;
 
 	@Column(name = "date_of_birth")
 	@Past
-	@NotBlank
+	@NotEmpty(message = "The dob address is required")
 	private LocalDate dateOfBirth;
 
 	@Column(name = "id_type")
@@ -74,5 +76,22 @@ public class Trainee {
 	@OneToOne(cascade = {CascadeType.ALL})
 	@JoinColumn(name = "training", referencedColumnName = "training_id")
 	private Training training;
+
+	@OneToOne(cascade = {CascadeType.ALL})
+	@JoinColumn(name = "family_info", referencedColumnName = "family_id")
+	private FamilyBackground familyInfo;
+
+	@OneToOne(cascade = {CascadeType.ALL})
+	@JoinColumn(name = "trainee_details", referencedColumnName = "details_id")
+	private TraineeDetails traineeDetails;
+
+	@OneToOne(cascade = {CascadeType.ALL})
+	@JoinColumn(name = "assessment", referencedColumnName = "assessment_id")
+	private AssessmentDetails assessment;
+
+	@OneToOne(cascade = {CascadeType.ALL})
+	@JoinColumn(name = "placement", referencedColumnName = "placement_id")
+	private PlacementDetails placement;
+	
 
 }

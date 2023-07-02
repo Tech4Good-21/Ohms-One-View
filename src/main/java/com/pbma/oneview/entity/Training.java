@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Training {
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "training_id")
@@ -28,9 +28,9 @@ public class Training {
 
 	@Column(name = "training_location")
 	private String trainingLocation;
-	
+
 	@OneToOne(cascade = {CascadeType.ALL})
-	@JoinColumn(name = "batch", referencedColumnName = "id")
+	@JoinColumn(name = "batch", referencedColumnName = "batch_id")
 	private Batch batch;
 	
 }

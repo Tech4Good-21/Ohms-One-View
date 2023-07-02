@@ -2,6 +2,7 @@ package com.pbma.oneview.controller;
 
 import java.util.List;
 
+import org.apache.commons.logging.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.http.HttpStatus;
@@ -15,14 +16,26 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.pbma.oneview.entity.Trainee;
 import com.pbma.oneview.service.OneViewService;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 
 @RestController
 public class OneViewController {
 	
 	@Autowired
 	private OneViewService oneViewService;
+	final Logger logger = LogManager.getLogger(OneViewController.class);
+
+	@PostMapping("/check")
+	public void fetchData(@RequestBody String data) {
+		System.out.println("Data received from Postman: " + data);
+	}
 	
 	@GetMapping("/trainees")
 	public List<Trainee> getTrainees() {
@@ -36,6 +49,7 @@ public class OneViewController {
 
 	@PostMapping("/trainees")
 	public Trainee addTrainee(@RequestBody Trainee trainee) {
+		logger.info("Received request body: {}",toJsonString(trainee.toString()));
 		return oneViewService.addTrainee(trainee);
 	}
 	
@@ -52,6 +66,15 @@ public class OneViewController {
 		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
+	}
+
+	private String toJsonString(Object object) {
+		try {
+	        return new ObjectMapper().writeValueAsString(object);
+	    } catch (JsonProcessingException e) {
+	        logger.error("Error converting object to JSON string: {}", e.getMessage());
+	        return "";
+	    }
 	}
 
 }

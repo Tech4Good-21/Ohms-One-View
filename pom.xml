@@ -11,7 +11,7 @@
 	<artifactId>pbma-one-view</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>pbma-one-view</name>
-	<description>Library management system </description>
+	<description>PBMA One View </description>
 
 	<properties>
 		<java.version>17</java.version>

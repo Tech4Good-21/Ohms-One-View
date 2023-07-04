@@ -3,18 +3,18 @@ package com.pbma.oneview.util;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.pbma.oneview.entity.Author;
+import com.pbma.oneview.entity.Training;
 import com.pbma.oneview.entity.Trainee;
-import com.pbma.oneview.vo.AuthorRecord;
+import com.pbma.oneview.vo.TrainingRecord;
 import com.pbma.oneview.vo.TraineeRecord;
 
 public class Mapper {
 
-	public static List<AuthorRecord> authorModelToVo(List<Author> authors) {
+	public static List<TrainingRecord> trainingModelToVo(List<Training> trainings) {
 
-		return authors.stream().map(vo -> {
-			var authorVo = new AuthorRecord(vo.getId(), vo.getName(), vo.getDescription());
-			return authorVo;
+		return trainings.stream().map(vo -> {
+			var trainingVo = new TrainingRecord(vo.getId(), vo.getName(), vo.getDescription(), vo.getBatch());
+			return trainingVo;
 		}).collect(Collectors.toList());
 
 	}

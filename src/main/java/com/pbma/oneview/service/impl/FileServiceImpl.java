@@ -6,11 +6,11 @@ import com.opencsv.bean.StatefulBeanToCsvBuilder;
 import com.opencsv.exceptions.CsvDataTypeMismatchException;
 import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
 import com.pbma.oneview.constant.Item;
-import com.pbma.oneview.service.AuthorService;
+import com.pbma.oneview.service.TrainingService;
 import com.pbma.oneview.service.FileService;
 import com.pbma.oneview.service.TraineeService;
 import com.pbma.oneview.util.Mapper;
-import com.pbma.oneview.vo.AuthorRecord;
+import com.pbma.oneview.vo.TrainingRecord;
 import com.pbma.oneview.vo.TraineeRecord;
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
@@ -21,12 +21,12 @@ import java.io.PrintWriter;
 
 @Service
 public class FileServiceImpl implements FileService {
-	final AuthorService authorService;
+	final TrainingService trainingService;
 
 	final TraineeService traineeService;
 
-	public FileServiceImpl(AuthorService authorService,TraineeService traineeService) {
-		this.authorService = authorService;
+	public FileServiceImpl(TrainingService trainingService, TraineeService traineeService) {
+		this.trainingService = trainingService;
 		this.traineeService = traineeService;
 	}
 
@@ -39,15 +39,14 @@ public class FileServiceImpl implements FileService {
 				"attachment; filename=\"" + item.get().getFileName() + "\"");
 
 		switch (item.get()) {
-		case AUTHOR:
-			StatefulBeanToCsv<AuthorRecord> authorWriter = getWriter(response.getWriter());
-			authorWriter.write(Mapper.authorModelToVo(authorService.findAllAuthors()));
-			break;
-
-		case TRAINEE:
-			StatefulBeanToCsv<TraineeRecord> traineeWriter = getWriter(response.getWriter());
-			traineeWriter.write(Mapper.traineeModelToVo(traineeService.findAllTrainees()));
-			break;
+			case TRAINING:
+				StatefulBeanToCsv<TrainingRecord> trainingWriter = getWriter(response.getWriter());
+				trainingWriter.write(Mapper.trainingModelToVo(trainingService.findAllTrainings()));
+				break;
+			case TRAINEE:
+				StatefulBeanToCsv<TraineeRecord> traineeWriter = getWriter(response.getWriter());
+				traineeWriter.write(Mapper.traineeModelToVo(traineeService.findAllTrainees()));
+				break;
 		}
 
 	}

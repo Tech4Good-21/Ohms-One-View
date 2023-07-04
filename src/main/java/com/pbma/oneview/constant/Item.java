@@ -5,7 +5,7 @@ import java.util.Optional;
 
 public enum Item {
 
-    AUTHOR("all-author", "Author-List.csv"),
+    TRAINING("all-training", "Training-List.csv"),
 	TRAINEE("all-trainee", "Trainee-List.csv");
 	private final String name;
 	private final String fileName;

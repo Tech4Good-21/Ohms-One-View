@@ -38,21 +38,21 @@ public class TraineeServiceImpl implements TraineeService {
 	}
 
 	@Override
-	public void createTrainee(Trainee author) {
-		traineeRepository.save(author);
+	public void createTrainee(Trainee training) {
+		traineeRepository.save(training);
 	}
 
 	@Override
-	public void updateTrainee(Trainee author) {
-		traineeRepository.save(author);
+	public void updateTrainee(Trainee training) {
+		traineeRepository.save(training);
 	}
 
 	@Override
 	public void deleteTrainee(Long id) {
-		var author = traineeRepository.findById(id)
+		var training = traineeRepository.findById(id)
 				.orElseThrow(() -> new NotFoundException(String.format("Trainee not found with ID %d", id)));
 
-		traineeRepository.deleteById(author.getId());
+		traineeRepository.deleteById(training.getId());
 	}
 
 	@Override

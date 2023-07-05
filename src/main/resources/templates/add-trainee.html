@@ -13,7 +13,7 @@
 </head>
 
 <body>
-	<div th:insert="comman/header :: header"></div>
+	<div th:insert="common/header :: header"></div>
 	<div class="container my-5">
 		<h3>Add Trainees</h3>
 
@@ -77,6 +77,15 @@
 								id="state" placeholder="State" />
 						</div>
 
+						<div class="form-group col-md-8">
+							<label for="state" class="col-form-label">Training</label>
+							<select name="myDropdown">
+								<option value="option1">Java</option>
+								<option value="option2">SQL</option>
+								<option value="option3">.Net</option>
+							</select>
+						</div>
+
 						<div class="col-md-6">
 							<input type="submit" class="btn btn-success" value=" Submit ">
 						</div>
@@ -87,7 +96,7 @@
 		</div>
 	</div>
 
-	<div th:insert="comman/footer :: footer"></div>
+	<div th:insert="common/footer :: footer"></div>
 
 </body>
 

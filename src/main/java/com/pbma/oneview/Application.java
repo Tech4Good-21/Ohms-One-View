@@ -3,7 +3,7 @@ package com.pbma.oneview;
 
 import com.pbma.oneview.entity.Role;
 import com.pbma.oneview.entity.User;
-import com.pbma.oneview.service.AuthorService;
+import com.pbma.oneview.service.TrainingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -22,7 +22,7 @@ public class Application {
 	private BCryptPasswordEncoder passwordEncoder;
 
 	@Autowired
-	private AuthorService authorService;
+	private TrainingService trainingService;
 
 	@Autowired
 	private UserRepository userRepository;
@@ -36,9 +36,9 @@ public class Application {
 		return (args) -> {
 
 // when you run application first time you need to uncomment below code and again comment it.
-//			var user = new User("admin", "admin", "admin@admin.in", passwordEncoder.encode("Temp123"),
-//					Arrays.asList(new Role("ROLE_ADMIN")));
-//			userRepository.save(user);
+/*			var user = new User("admin", "admin", "admin@admin.in", passwordEncoder.encode("Temp123"),
+					Arrays.asList(new Role("ROLE_ADMIN")));
+			userRepository.save(user);*/
 
 		};
 	}

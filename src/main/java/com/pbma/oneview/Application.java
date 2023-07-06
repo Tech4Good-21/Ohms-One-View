@@ -1,8 +1,6 @@
 package com.pbma.oneview;
 
 
-import com.pbma.oneview.entity.Role;
-import com.pbma.oneview.entity.User;
 import com.pbma.oneview.service.TrainingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;

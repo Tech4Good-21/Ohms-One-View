@@ -1,36 +1,33 @@
 package com.pbma.oneview.entity;
 
-import jakarta.persistence.*;
-
-import lombok.Builder;
-import lombok.Data;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
+
 @Entity
+@Table(name = "training")
 @Data
-@Builder
-@Table(name = "Training")
 @AllArgsConstructor
 @NoArgsConstructor
 public class Training {
-	
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "training_id")
-	public Integer trainingId;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id")
+	private Long id;
 
-	@Column(name = "training_name")
-	private String trainingName;
+	@Column(name = "name", length = 100, nullable = false, unique = true)
+	private String name;
 
-	@Column(name = "training_address")
-	private String trainingAddress;
+	@Column(name = "description", length = 250, nullable = false)
+	private String description;
 
-	@Column(name = "training_location")
-	private String trainingLocation;
+	@Column(name = "batch", length = 50, nullable = false)
+	private String batch;
 
-	@OneToOne(cascade = {CascadeType.ALL})
-	@JoinColumn(name = "batch", referencedColumnName = "batch_id")
-	private Batch batch;
-	
+
+
+
 }

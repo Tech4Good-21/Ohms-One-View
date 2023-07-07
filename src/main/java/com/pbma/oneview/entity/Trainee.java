@@ -51,4 +51,8 @@ public class Trainee {
 	@Column(name = "pin")
 	private Integer pin;
 
+	@OneToOne(cascade = {CascadeType.ALL})
+	@JoinColumn(name = "training", referencedColumnName = "id")
+	private Training training;
+
 }

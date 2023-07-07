@@ -79,10 +79,10 @@
 
 						<div class="form-group col-md-8">
 							<label for="state" class="col-form-label">Training</label>
-							<select name="myDropdown">
-								<option value="option1">Java</option>
-								<option value="option2">SQL</option>
-								<option value="option3">.Net</option>
+							<select th:field="*{training}" class="form-control">
+								<option th:each="training : ${trainings}"
+										th:value="${training.id}"
+										th:text="${training.name}"></option>
 							</select>
 						</div>
 

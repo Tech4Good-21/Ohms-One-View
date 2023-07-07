@@ -1,17 +1,17 @@
 package com.pbma.oneview.controller;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import org.springframework.data.domain.PageRequest;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import com.pbma.oneview.entity.Training;
 import com.pbma.oneview.service.TrainingService;
@@ -25,7 +25,7 @@ public class TrainingController {
 		this.trainingService = trainingService;
 	}
 
-	@RequestMapping({"/trainings", "/"})
+	@RequestMapping({"/trainings"})
 	public String findAllTrainings(Model model, @RequestParam("page") Optional<Integer> page,
 			@RequestParam("size") Optional<Integer> size) {
 
@@ -41,6 +41,12 @@ public class TrainingController {
 			model.addAttribute("pageNumbers", pageNumbers);
 		}
 		return "list-trainings";
+	}
+
+	@GetMapping(path="/trainingResponse", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<Training>> findAllTrainingResponse() {
+		var trainings = trainingService.findAllTrainings();
+		return ResponseEntity.ok(trainings);
 	}
 
 	@RequestMapping("/training/{id}")
